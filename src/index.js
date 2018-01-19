@@ -1,4 +1,4 @@
-/* eslint react/jsx-filename-extension: "warn" */
+/* eslint react/jsx-filename-extension: "off" */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
