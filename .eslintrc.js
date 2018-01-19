@@ -1,6 +1,6 @@
 module.exports = {
   "env":{
-    "browser": true
+    "browser": true,
   },
   "parser": "babel-eslint",
   "extends": "airbnb",
@@ -9,7 +9,4 @@ module.exports = {
     "jsx-a11y",
     "import",
   ],
-  // "rules": {
-  //   "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
-  // }
 }
