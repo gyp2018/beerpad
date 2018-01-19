@@ -18,6 +18,10 @@ module.exports = {
     filename: '[name].js',
   },
 
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+
   module: {
     rules: [
       {
