@@ -5,13 +5,14 @@ import classNames from 'classnames';
 const Button = (props) => {
   const cssclasses = classNames('btn', props.className);
   return props.href
-    ? <a {...props} className={cssclasses}>link</a>
-    : <button {...props} className={cssclasses}>button</button>;
+    ? <a {...props} className={cssclasses}>{props.children}</a>
+    : <button {...props} className={cssclasses}>{props.children}</button>;
 };
 
 Button.propTypes = {
   href: PropTypes.string,
   className: PropTypes.string,
+  children: PropTypes.string.isRequired,
 };
 Button.defaultProps = {
   href: '',
