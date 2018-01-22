@@ -4,6 +4,7 @@ import Button from './Button';
 import Suggest from './Suggest';
 import Rating from './Rating';
 import Form from './Form';
+import Dialog from './Dialog';
 
 const App = () => (
   <div className="container">
@@ -22,6 +23,14 @@ const App = () => (
         { rateme: 4, freetext: 'Hello' }
       }
     />
+
+    <Dialog
+      header="Out-of-the-box example"
+      onActoin={type => alert(type)}
+    >
+      Hello, dialog!
+    </Dialog>
+
   </div>
 );
 
