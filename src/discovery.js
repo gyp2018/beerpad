@@ -47,6 +47,38 @@ ReactDOM.render(
         Read-only: <Rating readonly={true} defaultValue="3" />
       </div>
     </div>
+    <hr />
+    <div className="my-5">
+      <h2>FormInput</h2>
+      <tabel>
+        <tbody>
+          <tr>
+            <td>Vanilla input</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Prefilled</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Year</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Rating</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Suggest</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Vanilla textarea</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </tabel>
+    </div>
   </div>,
   document.getElementById('root')
 );
