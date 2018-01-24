@@ -10,18 +10,16 @@ const BUILD_DIR = path.resolve(__dirname, 'build');
 module.exports = {
   entry: {
     vendor: SRC_DIR + '/vendor',
-    app: SRC_DIR + '/index'
+    app: SRC_DIR + '/index',
+    discovery : SRC_DIR + '/discovery',
   },
-
   output: {
     path: BUILD_DIR,
     filename: '[name].js',
   },
-
   resolve: {
     extensions: ['.js', '.jsx']
   },
-
   module: {
     rules: [
       {
@@ -42,24 +40,26 @@ module.exports = {
       }
     ],
   },
-
   plugins: [
     new CleanWebpackPlugin(BUILD_DIR),
     new HtmlWebpackPlugin({
+      inject: true,
+      excludeChunks: ['discovery'],
       template: path.resolve(__dirname, 'public/index.html'),
+      filename: 'index.html',
     }),
-    new webpack.HashedModuleIdsPlugin(),
+    new HtmlWebpackPlugin({
+      inject: true,
+      excludeChunks: ['app'],
+      template: path.resolve(__dirname, 'public/discovery.html'),
+      filename: 'discovery.html',
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
     }),
     new ExtractTextPlugin('[name].[contenthash].css'),
-    new UglifyJSPlugin({
-      sourceMap: true,
-    }),
   ],
-
   devtool: '#eval-source-map',
-
   devServer: {
     historyApiFallback: true,
     noInfo: true,
@@ -72,12 +72,14 @@ if (process.env.NODE_ENV === 'production') {
     path: BUILD_DIR,
     filename: '[name].[chunkhash].js',
   },
-
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
+    new webpack.HashedModuleIdsPlugin(),
+    new UglifyJSPlugin({
+      sourceMap: true,
+    }),
   ]);
-
   module.exports.devtool = '#source-map';
 }

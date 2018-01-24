@@ -18,5 +18,5 @@ ReactDOM.render(
     </div>
     <Whinepad schema={schema} initialData={data} />
   </div>,
-  document.getElementById('app')
+  document.getElementById('root')
 );
