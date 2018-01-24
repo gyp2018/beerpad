@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 
 import Button from './components/Button';
 import Suggest from './components/Suggest';
@@ -22,12 +24,14 @@ ReactDOM.render(
         Custom class name: <Button className="primary">I do nothing</Button>
       </div>
     </div>
+    <hr />
     <div className="my-5">
       <h2>Suggest</h2>
       <div>
         <Suggest options={['eenie', 'meenie', 'miney', 'mo']} />
       </div>
     </div>
+    <hr />
     <div className="my-5">
       <h2>Rating</h2>
       <div>
@@ -35,6 +39,12 @@ ReactDOM.render(
       </div>
       <div>
         Initial value 4: <Rating defaultValue="4" />
+      </div>
+      <div>
+        Max value 10: <Rating max="10" />
+      </div>
+      <div>
+        Read-only: <Rating readonly={true} defaultValue="3" />
       </div>
     </div>
   </div>,
