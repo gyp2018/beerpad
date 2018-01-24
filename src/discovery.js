@@ -8,6 +8,7 @@ import Suggest from './components/Suggest';
 import Rating from './components/Rating';
 import FormInput from './components/FormInput';
 import Form from './components/Form';
+import Action from './components/Actions';
 
 ReactDOM.render(
   <div className="container">
@@ -97,6 +98,7 @@ ReactDOM.render(
         </tbody>
       </tabel>
     </div>
+    <hr />
     <div className="my-5">
       <h2>Form</h2>
       <div>
@@ -111,6 +113,14 @@ ReactDOM.render(
         />
       </div>
     </div>
+    <hr />
+    <div>
+      <h2>Action</h2>
+      <div>
+        <Action />
+      </div>
+    </div>
+    <hr />
   </div>,
   document.getElementById('root')
 );
