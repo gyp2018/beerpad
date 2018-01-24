@@ -44,16 +44,15 @@ class Rating extends React.Component {
     const stars = [];
     for (let i = 1; i <= this.props.max; i++) {
       stars.push((
-        <span
-          className={i <= this.state.tmpRating ? 'RatingOn' : null}
+        <i
+          className={classNames('fa', 'fa-star-o', 'fa-lg', {'text-warning': i <= this.state.tmpRating})}
           key={i}
           onClick={!this.props.readonly && this.setRating.bind(this, i)}
           onMouseOver={!this.props.readonly && this.setTemp.bind(this, i)}
           onFocus={() => {}}
           role="presentation"
         >
-          &#9734;
-        </span>
+        </i>
       ));
     }
     return (
