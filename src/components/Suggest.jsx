@@ -5,11 +5,10 @@ import PropTypes from 'prop-types';
 class Suggest extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       value: props.defaultValue,
+      randomid: Math.random().toString(16).substring(2),
     };
-
     this.inputHandler = this.inputHandler.bind(this);
   }
 
@@ -24,16 +23,15 @@ class Suggest extends React.Component {
   }
 
   render() {
-    const randomid = Math.random().toString(16).substring(2);
     return (
       <div>
         <input
-          list={randomid}
+          list={this.state.randomid}
           defaultValue={this.props.defaultValue}
           onChange={this.inputHandler}
           id={this.props.id}
         />
-        <datalist id={randomid}>
+        <datalist id={this.state.randomid}>
           {this.props.options.map((item, idx) => (
             <option value={item} key={idx} />
           ))}
@@ -44,7 +42,7 @@ class Suggest extends React.Component {
 }
 
 Suggest.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   defaultValue: PropTypes.string,
 };
