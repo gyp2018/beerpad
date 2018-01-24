@@ -17,32 +17,33 @@ class FormInput extends React.Component {
       defaultValue: this.props.defaultValue,
     };
 
-    if (this.props.type === 'year') {
-      return (
-        <input
-          {...common}
-          type="number"
-          defaultValue={this.props.defaultValue || new Date().getFullYear()}
-        />
-      );
-    } else if (this.props.type === 'suggest') {
-      return (
-        <Suggest
-          {...common}
-          options={this.props.options}
-        />
-      );
-    } else if (this.props.type === 'rating') {
-      return (
-        <Rating
-          {...common}
-          defaultValue={parseInt(this.props.defaultValue, 10)}
-        />
-      );
-    } else if (this.props.type === 'text') {
-      return <textarea {...common} />;
-    } else {
-      return <input {...common} type="text" />;
+    switch (this.props.type) {
+      case 'year':
+        return (
+          <input
+            {...common}
+            type="number"
+            defaultValue={this.props.defaultValue || new Date().getFullYear()}
+          />
+        );
+      case 'suggest':
+        return (
+          <Suggest
+            {...common}
+            options={this.props.options}
+          />
+        );
+      case 'rating':
+        return (
+          <Rating
+            {...common}
+            defaultValue={parseInt(this.props.defaultValue, 10)}
+          />
+        );
+      case 'text':
+        return <textarea {...common} />;
+      default:
+        return <input {...common} type="text" />;
     }
   }
 }
