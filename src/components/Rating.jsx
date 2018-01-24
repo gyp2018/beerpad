@@ -63,7 +63,7 @@ class Rating extends React.Component {
         })}
         onMouseOut={this.reset}
         onBlur={() => {}}
-        roleß="presentation"
+        role="presentation"
       >
         {stars}
         {this.props.readonly || !this.props.id
