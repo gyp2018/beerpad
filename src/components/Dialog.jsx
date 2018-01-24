@@ -18,7 +18,11 @@ class Dialog extends React.Component {
       <div className={classNames({ 'modal': this.props.modal })} tabindex="-1" role="dialog">
         <div className={classNames({ 'modal-dialog': this.props.modal })} role="document">
           <div className="modal-content">
-            <div className="modal-header">{this.props.header}</div>
+            <div className="modal-header">
+              <h5 className="modal-title">
+                {this.props.header}
+              </h5>
+            </div>
             <div className="modal-body">{this.props.children}</div>
             <div className="modal-footer">
               {this.props.hasCancel
