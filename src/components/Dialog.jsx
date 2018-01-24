@@ -4,39 +4,42 @@ import PropTypes from 'prop-types';
 
 class Dialog extends React.Component {
   componentWillUnmount() {
-    document.body.classList.remove('DialogModalOpen');
+    document.body.classList.remove('modal-open');
   }
 
   componentDidMount() {
     if (this.props.modal) {
-      document.body.classList.add('DialogModalOpen');
+      document.body.classList.add('modal-open');
     }
   }
 
   render() {
     return (
-      <div className={classNames({ 'Dialog': true, 'DialogModal': this.props.modal })}>
-        <div className={classNames({ 'DialogModalWrap': this.props.modal })}>
-          <div className="DialogHeader">{this.props.header}</div>
-          <div className="DialogBody">{this.props.children}</div>
-          <div className="DialogFooter">
-            {this.props.hasCancel
-              ? (
-                <span
-                  className="DialogDismiss"
-                  onClick={this.props.onAction.bind(this, 'dismiss')}
-                >
-                  Cancel
-                </span>
-              ) : null
-            }
-            <button
-              onClick={this.props.onAction.bind(this,
-                this.props.hasCancel ? 'confirm' : 'dismiss')
+      <div className={classNames({ 'modal': this.props.modal })} tabindex="-1" role="dialog">
+        <div className={classNames({ 'modal-dialog': this.props.modal })} role="document">
+          <div className="modal-content">
+            <div className="modal-header">{this.props.header}</div>
+            <div className="modal-body">{this.props.children}</div>
+            <div className="modal-footer">
+              {this.props.hasCancel
+                ? (
+                  <span
+                    className="btn btn-secondary"
+                    onClick={this.props.onAction.bind(this, 'dismiss')}
+                  >
+                    Cancel
+                  </span>
+                ) : null
               }
-            >
-              {this.props.confirmLabel}
-            </button>
+              <button
+                className="btn btn-primary"
+                onClick={this.props.onAction.bind(this,
+                  this.props.hasCancel ? 'confirm' : 'dismiss')
+                }
+              >
+                {this.props.confirmLabel}
+              </button>
+            </div>
           </div>
         </div>
       </div>

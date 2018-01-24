@@ -9,6 +9,7 @@ import Rating from './components/Rating';
 import FormInput from './components/FormInput';
 import Form from './components/Form';
 import Action from './components/Actions';
+import Dialog from './components/Dialog';
 
 ReactDOM.render(
   <div className="container">
@@ -121,6 +122,28 @@ ReactDOM.render(
       </div>
     </div>
     <hr />
+    <div>
+      <h2>Dialog</h2>
+      <div>
+        <Dialog
+          header="Out-of-the-box example"
+          onAction={tyep => alert(type)}
+        >
+          Hello, dialog!
+        </Dialog>
+      </div>
+      <div>
+        <Dialog
+          header="No cancel, custom button"
+          hasCancel={false}
+          confirmLabel="Whatever"
+          onAction={tyep => alert(type)}
+        >
+          Anything goes here, see:
+          <Button>a button</Button>
+        </Dialog>
+      </div>
+    </div>
   </div>,
   document.getElementById('root')
 );
