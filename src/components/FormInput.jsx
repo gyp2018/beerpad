@@ -22,6 +22,7 @@ class FormInput extends React.Component {
         return (
           <input
             {...common}
+            className="form-control"
             type="number"
             defaultValue={this.props.defaultValue || new Date().getFullYear()}
           />
@@ -40,20 +41,20 @@ class FormInput extends React.Component {
             defaultValue={parseInt(this.props.defaultValue, 10)}
           />
         );
-      case 'text':
-        return <textarea {...common} />;
+      case 'textarea':
+        return <textarea {...common} className="form-control" />;
       default:
-        return <input {...common} type="text" />;
+        return <input {...common} className="form-control" type="text" />;
     }
   }
 }
 
 FormInput.propTypes = {
-  id: PropTypes.string,
-  defaultValue: PropTypes.oneOfType(
+  id: PropTypes.string.isRequired,
+  defaultValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ),
+  ]),
   options: PropTypes.arrayOf(PropTypes.string),
   type: PropTypes.string.isRequired,
 };

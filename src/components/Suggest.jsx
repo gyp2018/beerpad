@@ -43,7 +43,7 @@ class Suggest extends React.Component {
 }
 
 Suggest.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   defaultValue: PropTypes.string,
 };
