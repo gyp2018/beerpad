@@ -4,21 +4,25 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const SRC_DIR = path.resolve(__dirname, 'src');
 const BUILD_DIR = path.resolve(__dirname, 'build');
 
 module.exports = {
   entry: {
-    vendor: SRC_DIR + '/vendor',
-    app: SRC_DIR + '/index',
-    discovery : SRC_DIR + '/discovery',
+    vendor: path.resolve(__dirname, './src/vendor'),
+    app: path.resolve(__dirname, './src/app'),
+    discovery : path.resolve(__dirname, './src/discovery'),
   },
   output: {
     path: BUILD_DIR,
     filename: '[name].js',
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      api: path.resolve(__dirname, './src/api'),
+      components: path.resolve(__dirname, './src/components'),
+      uri: path.resolve(__dirname, './src/uri'),
+    },
   },
   module: {
     rules: [
