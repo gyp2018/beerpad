@@ -43,13 +43,14 @@ class Rating extends React.Component {
   render() {
     const stars = [];
     for (let i = 1; i <= this.props.max; i++) {
+      const clickHandler = !this.props.readonly ? this.setRating.bind(this, i) : () => {};
+      const mOverHnadler = !this.props.readonly ? this.setTemp.bind(this, i) : () => {};
       stars.push((
         <i
           className={classNames('fa', 'fa-star-o', 'fa-lg', {'text-warning': i <= this.state.tmpRating})}
           key={i}
-          onClick={!this.props.readonly && this.setRating.bind(this, i)}
-          onMouseOver={!this.props.readonly && this.setTemp.bind(this, i)}
-          onFocus={() => {}}
+          onClick={clickHandler}
+          onMouseOver={mOverHnadler}
           role="presentation"
         >
         </i>
@@ -57,12 +58,7 @@ class Rating extends React.Component {
     }
     return (
       <div
-        className={classNames({
-          Rating: true,
-          RatingReadOnly: this.props.readonly,
-        })}
         onMouseOut={this.reset}
-        onBlur={() => {}}
         role="presentation"
       >
         {stars}
@@ -88,7 +84,6 @@ Rating.propTypes = {
   max: PropTypes.number,
 };
 Rating.defaultProps = {
-  readonly: false,
   defaultValue: 0,
   max: 5,
 };
