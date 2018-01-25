@@ -14,14 +14,14 @@ class Form extends React.Component {
 
   render() {
     return (
-      <form className="form">
+      <form>
         {this.props.fields.map((field) => {
           const prefilled = this.props.initialData
             && this.props.initialData[field.id];
           if (!this.props.readonly) {
             return (
-              <div className="FormRow" key={field.id}>
-                <label className="FormLabel" htmlFor={field.id}>
+              <div className="form-group" key={field.id}>
+                <label htmlFor={field.id}>
                   {field.label}:
                 </label>
                 <FormInput
@@ -36,13 +36,14 @@ class Form extends React.Component {
             return null;
           }
           return (
-            <div className="FormRow" key={field.id}>
-              <span className="FormLabel">
+            <div className="form-group" key={field.id}>
+              <label htmlFor={field.id}>
                 {field.label}:
-              </span>
+              </label>
               {field.type === 'rating'
                 ? (
                   <Rating
+                    id={field.id}
                     readonly
                     defaultValue={parseInt(prefilled, 10)}
                   />
