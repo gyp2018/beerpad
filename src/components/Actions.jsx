@@ -33,7 +33,7 @@ const Actions = props =>
   </div>
 
 Actions.propTypes = {
-  onActoin: PropTypes.func,
+  onAction: PropTypes.func,
 };
 Actions.defaultProps = {
   onAction: () => {},
