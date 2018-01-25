@@ -26,6 +26,7 @@ class Suggest extends React.Component {
     return (
       <div>
         <input
+          className="form-control"
           list={this.state.randomid}
           defaultValue={this.props.defaultValue}
           onChange={this.inputHandler}
@@ -45,9 +46,6 @@ Suggest.propTypes = {
   id: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   defaultValue: PropTypes.string,
-};
-Suggest.defaultProps = {
-  defaultValue: '',
 };
 
 export default Suggest;
