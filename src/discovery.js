@@ -22,62 +22,68 @@ ReactDOM.render(
         Button with onClick: <Button onClick={() => alert('ouch')}>Click me</Button>
       </div>
       <div>
-        A link: <Button href="http://reactjs.com">Follow me</Button>
+        A link: <Button href="http://reactjs.com" color="link">Follow me</Button>
       </div>
       <div>
-        Custom class name: <Button className="primary">I do nothing</Button>
+        A link Success: <Button href="http://reactjs.com" color="success">Follow me</Button>
+      </div>
+      <div>
+        Danger class name: <Button color="danger" outline>I do nothing</Button>
+      </div>
+      <div>
+        Primary class name, size sm: <Button color="primary" size="sm">I do nothing</Button>
       </div>
     </div>
     <hr />
     <div className="my-5">
       <h2>Suggest</h2>
       <div>
-        <Suggest options={['eenie', 'meenie', 'miney', 'mo']} />
+        <Suggest id="suggestTest" options={['eenie', 'meenie', 'miney', 'mo']} />
       </div>
     </div>
     <hr />
     <div className="my-5">
       <h2>Rating</h2>
       <div>
-        No initial value: <Rating />
+        No initial value: <Rating id="noInitialRating" />
       </div>
       <div>
-        Initial value 4: <Rating defaultValue={4} />
+        Initial value 4: <Rating id="fourInitialRating" defaultValue={4} />
       </div>
       <div>
-        Max value 10: <Rating max={10} />
+        Max value 10: <Rating id="tenMaxRating" max={10} />
       </div>
       <div>
-        Read-only: <Rating readonly={true} defaultValue={3} />
+        Read-only: <Rating id="readonlyRating" defaultValue={3} readonly />
       </div>
     </div>
     <hr />
     <div className="my-5">
       <h2>FormInput</h2>
-      <tabel>
+      <table>
         <tbody>
           <tr>
             <td>Vanilla input</td>
             <td>
-              <FormInput />
+              <FormInput type="text" id="vanillaInput" />
             </td>
           </tr>
           <tr>
             <td>Prefilled</td>
             <td>
-              <FormInput defaultValue="it's like a default" />
+              <FormInput type="text" id="prefilledInput" defaultValue="it's like a default" />
             </td>
           </tr>
           <tr>
             <td>Year</td>
             <td>
-              <FormInput type="year" />
+              <FormInput type="year" id="yearInput" />
             </td>
           </tr>
           <tr>
             <td>Rating</td>
             <td>
-              <FormInput type="rating" defaultValue={4} />
+              <FormInput type="rating" id="ratingInput" defaultValue={4} />
             </td>
           </tr>
           <tr>
@@ -85,19 +91,20 @@ ReactDOM.render(
             <td>
               <FormInput
                 type="suggest"
+                id="suggestInput"
                 options={['red', 'green', 'blue']}
                 defaultValue="green"
-              />
+                />
             </td>
           </tr>
           <tr>
             <td>Vanilla textarea</td>
             <td>
-              <FormInput type="text" />
+              <FormInput type="textarea" id="textareaInput" />
             </td>
           </tr>
         </tbody>
-      </tabel>
+      </table>
     </div>
     <hr />
     <div className="my-5">
@@ -106,19 +113,31 @@ ReactDOM.render(
         <Form
           fields={[
             { label: 'Rating', type: 'rating', id: 'rateme' },
-            { label: 'Greetings', id: 'freetext' },
+            { label: 'Greetings', type: 'text', id: 'freetext' },
           ]}
           initialData={
             { rateme: 4, freetext: 'Hello' }
           }
-        />
+          />
+      </div>
+      <div>
+        <Form
+          fields={[
+            { label: 'Rating', type: 'rating', id: 'rateme' },
+            { label: 'Greetings', type: 'textarea',  id: 'freetext' },
+          ]}
+          initialData={
+            { rateme: 4, freetext: 'Hello' }
+          }
+          readonly
+          />
       </div>
     </div>
     <hr />
     <div>
       <h2>Action</h2>
       <div>
-        <Action />
+        <Action onAction={(actionType) => { console.log(actionType) }} />
       </div>
     </div>
     <hr />
@@ -127,8 +146,8 @@ ReactDOM.render(
       <div>
         <Dialog
           header="Out-of-the-box example"
-          onAction={tyep => alert(type)}
-        >
+          onAction={type => alert(type)}
+          >
           Hello, dialog!
         </Dialog>
       </div>
@@ -137,8 +156,8 @@ ReactDOM.render(
           header="No cancel, custom button"
           hasCancel={false}
           confirmLabel="Whatever"
-          onAction={tyep => alert(type)}
-        >
+          onAction={type => alert(type)}
+          >
           Anything goes here, see:
           <Button>a button</Button>
         </Dialog>

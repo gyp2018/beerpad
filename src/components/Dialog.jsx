@@ -15,7 +15,7 @@ class Dialog extends React.Component {
 
   render() {
     return (
-      <div className={classNames({ 'modal': this.props.modal })} tabindex="-1" role="dialog">
+      <div className={classNames({ 'modal': this.props.modal })} tabIndex="-1" role="dialog">
         <div className={classNames({ 'modal-dialog': this.props.modal })} role="document">
           <div className="modal-content">
             <div className="modal-header">
