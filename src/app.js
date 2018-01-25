@@ -8,7 +8,7 @@ let data = JSON.parse(localStorage.getItem('data'));
 
 if (!data) {
   data = {};
-  schema.forEach(item => data[item.id] = item.sample);
+  schema.forEach((item) => { data[item.id] = item.sample; });
   data = [data];
 }
 
@@ -19,5 +19,5 @@ ReactDOM.render(
     </div>
     <Whinepad schema={schema} initialData={data} />
   </div>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

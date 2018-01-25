@@ -4,5 +4,5 @@ export default {
     'Barbera',
     'Cabernet Franc',
     'Cabernet Sauvignon',
-  ]
-}
+  ],
+};

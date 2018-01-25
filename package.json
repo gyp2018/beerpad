@@ -8,7 +8,7 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server ",
     "build": "NODE_ENV=production webpack",
-    "eslint": "eslint src/** --ext .js .jsx"
+    "lint": "eslint src/** --ext .js .jsx"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",

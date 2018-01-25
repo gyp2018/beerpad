@@ -1,3 +1,4 @@
+/* eslint react/jsx-filename-extension: "off" */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -19,7 +20,7 @@ ReactDOM.render(
     <div className="my-5">
       <h2>Button</h2>
       <div>
-        Button with onClick: <Button onClick={() => alert('ouch')}>Click me</Button>
+        Button with onClick: <Button onClick={() => console.log('ouch')}>Click me</Button>
       </div>
       <div>
         A link: <Button href="http://reactjs.com" color="link">Follow me</Button>
@@ -94,7 +95,7 @@ ReactDOM.render(
                 id="suggestInput"
                 options={['red', 'green', 'blue']}
                 defaultValue="green"
-                />
+              />
             </td>
           </tr>
           <tr>
@@ -118,26 +119,26 @@ ReactDOM.render(
           initialData={
             { rateme: 4, freetext: 'Hello' }
           }
-          />
+        />
       </div>
       <div>
         <Form
           fields={[
             { label: 'Rating', type: 'rating', id: 'rateme' },
-            { label: 'Greetings', type: 'textarea',  id: 'freetext' },
+            { label: 'Greetings', type: 'textarea', id: 'freetext' },
           ]}
           initialData={
             { rateme: 4, freetext: 'Hello' }
           }
           readonly
-          />
+        />
       </div>
     </div>
     <hr />
     <div>
       <h2>Action</h2>
       <div>
-        <Action onAction={(actionType) => { console.log(actionType) }} />
+        <Action onAction={actionType => console.log(actionType)} />
       </div>
     </div>
     <hr />
@@ -146,8 +147,8 @@ ReactDOM.render(
       <div>
         <Dialog
           header="Out-of-the-box example"
-          onAction={type => alert(type)}
-          >
+          onAction={type => console.log(type)}
+        >
           Hello, dialog!
         </Dialog>
       </div>
@@ -156,13 +157,13 @@ ReactDOM.render(
           header="No cancel, custom button"
           hasCancel={false}
           confirmLabel="Whatever"
-          onAction={type => alert(type)}
-          >
+          onAction={type => console.log(type)}
+        >
           Anything goes here, see:
           <Button>a button</Button>
         </Dialog>
       </div>
     </div>
   </div>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
